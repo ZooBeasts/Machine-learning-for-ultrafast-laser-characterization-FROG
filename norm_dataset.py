@@ -5,7 +5,7 @@ from torchvision import transforms
 from PIL import Image
 from torch.utils.data import Dataset
 from sklearn.model_selection import train_test_split
-
+import numpy as np
 seeding = 42
 
 transforms = transforms.Compose([
@@ -19,9 +19,11 @@ transforms = transforms.Compose([
 class frogdata(Dataset):
     def __init__(self, csv_file, img_dir, transform=None, train=True, val_size=0.2):
         self.data = pd.read_csv(csv_file, header=None)
-        self.data += 1
         self.img_dir = img_dir
         self.transforms = transforms
+        numeric_cols = self.data.select_dtypes(include=[np.number]).columns
+        self.data[numeric_cols] = self.data[numeric_cols] + 1
+        # print(self.data.iloc[0, 175:335].tolist())
 
         train_indices, val_indices = train_test_split(
             range(len(self.data)),
@@ -58,4 +60,6 @@ class frogdata(Dataset):
 
 
 if __name__ == '__main__':
-    pass
+    frogdata('dataset/shg_real.csv','SHG/',transform=transforms)
+    print()
+

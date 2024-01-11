@@ -3,6 +3,7 @@ from torchvision import transforms
 from Resnet import *
 from norm_dataset import frogdata
 from itertools import zip_longest
+import pandas as pd
 
 # check the cuda and GPU is available,if not using CPU
 device = torch.device("cuda:0" if (torch.cuda.is_available()) else "cpu")
