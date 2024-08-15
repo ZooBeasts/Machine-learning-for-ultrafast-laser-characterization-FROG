@@ -1,6 +1,9 @@
 # Ultrafast_laser_FROG_Prediction
-This is the collaboration project for ultrafast laser pulse response prediction bewteen Heriot-Watt University and Univeristy of St Andrews 
+This is the collaboration project for ultrafast laser pulse response prediction between Heriot-Watt University and University of St Andrews 
 
-Project finished, paper will be finished drafting in April. Aim to publish in June
+This is the mock model code for the paper, as the paper states using the encoder-decoder model, the performance is roughly the same as using Resnet. 
+Code shared for people to do similar projects without any troubles, load, and use for anyone.
 
-24/03 2024  Update: the uploaded code is beta 0.1, and How FROG generation code is not available unless released by collaborators from Heriot-Watt University
+
+
+![image](https://github.com/user-attachments/assets/e330c885-49c2-4f03-ac6a-ad913af952d2)
