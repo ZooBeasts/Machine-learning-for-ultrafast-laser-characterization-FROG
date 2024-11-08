@@ -1,9 +1,9 @@
-# Ultrafast_laser_FROG_Prediction
-This is the collaboration project for ultrafast laser pulse response prediction between Heriot-Watt University and University of St Andrews 
+# Machine-Learning-Assisted Dual Harmonic Generation FROG for Enhanced Ultrafast Pulse Recovery
 
-This is the mock model code for the paper, as the paper states using the encoder-decoder model, the performance is roughly the same as using Resnet. 
-Code shared for people to do similar projects without any troubles, load, and use for anyone.
+This is the collaboration project for ultrafast laser pulse response prediction between Heriot-Watt University and the University of St Andrews 
+
+This is the mock model code for the paper. As the paper states, using the encoder-decoder model performs roughly the same as using Resnet9. 
+The code is shared so people can do similar projects without trouble. if you like our project, please reference our paper.
 
 
 
-![image](https://github.com/user-attachments/assets/e330c885-49c2-4f03-ac6a-ad913af952d2)
