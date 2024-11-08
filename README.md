@@ -1,7 +1,7 @@
 # Machine Learning Assisted Dual Harmonic Generation FROG for Enhanced Ultrafast Pulse Recovery
 
 
-### Wallace Jaffray<sup>1</sup>, Ziheng Guo<sup>2</sup>, Andrea di Falco<sup>2</sup>, Marcello Ferrera<sup>2</sup>
+### Wallace Jaffray<sup>1</sup>, Ziheng Guo<sup>2</sup>, Andrea di Falco<sup>2</sup>, Marcello Ferrera<sup>1*</sup>
 
 ###  <sup>1</sup> Heriot Watt University, Edinburgh, EH14 4AS, United Kingdom
 ###  <sup>2</sup> School of Physics and Astronomy, University of St. Andrews, Fife, KY16 9SS, United Kingdom
