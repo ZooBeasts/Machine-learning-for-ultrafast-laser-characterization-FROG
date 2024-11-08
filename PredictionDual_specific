@@ -1,0 +1,68 @@
+
+import matplotlib.pyplot as plt
+import pandas as pd
+from torchvision import transforms
+from PIL import Image
+import numpy as np
+from Model import *
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+model_path = 'logs_im_11/Resnet_epoch_121.pt'
+
+state_dict = torch.load(model_path, map_location=device)
+
+model = resnet9_with_attention(6, 64, 128)
+model.load_state_dict(state_dict)
+model = model.to(device)
+model = model.eval()
+
+i = 1116
+transform = transforms.Compose([
+        transforms.Resize((256, 256)),
+        transforms.CenterCrop(192),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
+
+full_data = pd.read_csv('Eim_20k_shg.csv', header=None)
+
+target_image_name = f'shg_{i}.png'
+
+index = full_data[0].str.contains(target_image_name)
+real_points = full_data.loc[index, 64:191].values.flatten()
+
+# Load the corresponding images (shg and thg)
+shg_image_path = f'SHG_crop/shg_{i}.png'
+thg_image_path = f'THG_crop/thg_{i}.png'
+
+# Load and process the SHG and THG images
+shg_image = Image.open(shg_image_path).convert('RGB')
+thg_image = Image.open(thg_image_path).convert('RGB')
+
+# Apply the same transformation as your dataset
+dual_channel_image = torch.cat([transform(shg_image), transform(thg_image)], dim=0).unsqueeze(0)  # Concatenate along the channel axis and add batch dim
+dual_channel_image = dual_channel_image.to(device)
+# shg_image = transform(thg_image).unsqueeze(0).to(device)
+
+with torch.no_grad():
+    output = model(dual_channel_image).squeeze(0).cpu().detach().numpy()
+
+# Prepare the time axis
+wl = np.arange(-64, 64, 1)
+
+# Plot the prediction vs real data
+plt.plot(wl, output.reshape(128, 1), '--r', label='pred')
+plt.plot(wl, real_points.reshape(128, 1), 'b', label='real')
+plt.xlabel('Time (fs)')
+plt.ylabel('E(t) (arb.units)')
+# plt.title(f'Dual Channel Prediction for {target_image_name} vs Ground Truth')
+plt.grid()
+plt.legend()
+plt.show()
+
+# Optionally, save the output to a CSV file
+# output_df = pd.DataFrame(output)
+# output_df.to_csv(f'logs_im_11/{target_image_name}.csv', index=False, header=False)
+
+
+
+
