@@ -2,11 +2,12 @@
 
 
 ### Wallace Jaffray<sup>1</sup>, Ziheng Guo<sup>2</sup>, Andrea di Falco<sup>2</sup>, Marcello Ferrera<sup>2</sup>
+
 ###  <sup>1</sup> Heriot Watt University, Edinburgh, EH14 4AS, United Kingdom
 ###  <sup>2</sup> School of Physics and Astronomy, University of St. Andrews, Fife, KY16 9SS, United Kingdom
 
 
-
+--------------------------------------------------------
 
 This is the collaboration project for ultrafast laser pulse response prediction between Heriot-Watt University and the University of St Andrews 
 
@@ -24,9 +25,14 @@ The code is shared so people can do similar projects without trouble. if you lik
 
 
 How to use: 
+
 Dataholder has single input and dual input dataset.
+
 Train Single only uses one inpout
+
 Train Dual uses two input
+
 Prediction Dual Dataset predicts pulse from dataset selection
+
 Prediction Dual Specific predicts pulse from selected data.
 
