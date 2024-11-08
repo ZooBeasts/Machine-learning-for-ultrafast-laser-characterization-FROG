@@ -1,4 +1,4 @@
-# Machine-Learning-Assisted Dual Harmonic Generation FROG for Enhanced Ultrafast Pulse Recovery
+# Machine Learning Assisted Dual Harmonic Generation FROG for Enhanced Ultrafast Pulse Recovery
 
 This is the collaboration project for ultrafast laser pulse response prediction between Heriot-Watt University and the University of St Andrews 
 
